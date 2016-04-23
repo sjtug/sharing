@@ -1,0 +1,379 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass{beamer}
+\usepackage{CJK}
+\usepackage[normalem]{ulem}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[SJTUG Mirrors]{\texorpdfstring{\sout{How to make a big news}}{} SJTUG Mirrors}
+
+\author{Lv Zheng}
+\institute[SJTUG]
+{
+SJTUG\\
+\medskip
+\textit{lv.zheng.2015@gmail.com}
+}
+\date{April 23, 2016}
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{Big News}
+\begin{CJK}{UTF8}{gbsn}
+
+骆神 wrote in the News Section:\\~
+
+喜迎校庆 SJTUG Mirrors加入Arch Linux镜像源\\~
+
+在上海交通大学120周年校庆前夕，经过SJTUG所有人的共同努力，我们上线了Arch
+Linux，PuTTY和Cygwin的镜像，向百廿交大的生日献上我们的祝福。\\~
+
+Arch Linux源使用方法：\\~
+
+编辑/etc/pacman.d/mirrorlist，先注释掉里面的所有行，然后在文件的最顶端添加
+\end{CJK}
+
+\begin{verbatim}
+Server = http://mirrors.sjtug.org/archlinux/$repo/os/$arch
+\end{verbatim}
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame} 
+\frametitle{Questions to Ask}
+\begin{block}{Q0}
+How great is the server's hardware?
+\end{block}
+\begin{block}{Q1}
+How does a mirror work?
+\end{block}
+\begin{block}{Q2}
+How do we deploy the services?
+\end{block}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\huge{\centerline{How great is the server's hardware?}}
+\large{\centerline{Let's have a look!}}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\huge{\centerline{How does a mirror work?}}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{tunasync}
+
+Different websites/repos require different tools to synchronize, and the most
+used tool for synchronization is \texttt{rsync}. However, some sites such as
+\textit{Debian archive} requires 2-stage sync, while some others don't.\\~
+
+\textbf{\texttt{tunasync}} is a great tool for such operations. It supports
+different sync protocols. Sites to sync are configured in a config file. For
+example, to sync PuTTY (which is a very small site, less than 100 MB in size),
+add these lines to the config file:
+
+\begin{block}{tunasync.conf}
+\begin{verbatim}
+[[mirrors]]
+name = "PuTTY"
+provider = "rsync"
+upstream = "rsync://rsync.chiark.greenend.org.uk/\
+	ftp/users/sgtatham/putty-website-mirror/"
+\end{verbatim}
+\end{block}
+
+\sout{Too young} too simple, isn't it?
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{nginx}
+\texttt{nginx} is a even faster HTTP server program than \sout{western} Apache
+HTTPD, especially for serving static contents, thus very suitable for our
+mirrors. However, dynamic contents such as PHP generated pages can be served
+with FastCGI.
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\huge{\centerline{How do we deploy the services?}}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Traditional way (1)}
+Install all the required software packages such as Apache, MariaDB, and PHP on
+the host and run them on the host space.\\~
+
+Pros:
+\begin{itemize}
+\item ......
+\end{itemize}
+
+Cons:
+\begin{itemize}
+\item One security flaw of a software may break the entire system. (may be
+avoided by using a non-privileged user for each service)
+\item Hard to deploy, especially hard for cluster deployment.
+\item Hard to deploy multiple services that use the same software.
+\item Hard to make backups.
+\end{itemize}
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Traditional way (2)}
+Virtually same as the previous way. Just do everything in a virtual machine
+instead.\\~
+
+Pros:
+\begin{itemize}
+\item Easy for cluster deployment and backups.
+\item May deploy multiple services on a single computer.
+\item Strong isolation.
+\end{itemize}
+
+Cons:
+\begin{itemize}
+\item Performance downgrade. Low memory-efficiency. Cache unfriendly.
+\item It's excit\sout{ed}ing to do so on a cloud server :)
+\end{itemize}
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\huge{\centerline{The Docker way}}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{What is Docker}
+\begin{itemize}
+\item Docker allows you to package an application with all of its dependencies
+into a standardized unit for software development.
+\item Docker containers wrap up a piece of software in a complete filesystem
+that contains everything it needs to run: code, runtime, system tools, system
+libraries - anything you can install on a server. This guarantees that it will
+always run the same, regardless of the environment it is running in.\\~
+
+\begin{CJK}{UTF8}{gbsn}
+(凑表脸地偷懒了)
+\end{CJK}
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\Large{\centerline{Let's learn Docker from an example}}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{CJK}{UTF8}{gbsn}
+\Huge{\centerline{批判一番}}
+\end{CJK}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Rewrite the whole project thoroughly}
+Having learned about the \texttt{mirror-docker} project, I decided to rewrite
+the \texttt{Dockerfile}s and scripts.\\~
+
+With our joint efforts, the project was finally rewritten and put into
+application.\\~
+
+We added \texttt{archlinux}, \texttt{PuTTY}, and \texttt{cygwin} repos right
+before SJTU 120 Anniversary.
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Structure of the new settings}
+Currently there are two Docker containers running on the server, and another
+container running on demand.
+
+\begin{enumerate}
+\item \texttt{tunasync} container syncs the repos and generate
+\texttt{tunasync.json} regularly. Files are stored in a host directory mounted
+to the container.
+\item \texttt{nginx} container serves the HTTP content. On each request, it
+first looks up the \texttt{site} directory for web content. If not found, serve
+the \texttt{tunasync}ed files.
+\item \texttt{jekyll} container builds the static web pages from source. It is
+manually run on demand, for example, when news are updated.
+
+\end{enumerate}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\begin{CJK}{UTF8}{bsmi}
+\huge{\centerline{識得唔識得啊}}
+\large{\centerline{Sik Dak Ng Sik Dak Aa}}
+\end{CJK}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Who is to blame}
+\begin{CJK}{UTF8}{gbsn}
+\begin{itemize}
+\item 骆神 \sout{gives us a negative example of \texttt{Dockerfile},} 钦定 the
+entire project, and 骗来服务器。
+\item 李臻博 \sout{violenty} upgrades docker on the server and contributes a
+lot of precious ideas and script code to the rewrite.
+\item 吕正 does \sout{destructive} experiments and deploys the services on the
+server.
+\item And thank you all for testing the mirrors.
+\end{itemize}
+\end{CJK}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{What Next?}
+0.1 Milestone:
+\begin{enumerate}
+\item System monitor
+\item HTTPS support
+\end{enumerate}
+1.0 Milestone:
+\begin{enumerate}
+\item Rewrite the Web frontend
+\end{enumerate}
+Also,
+\begin{enumerate}
+\item Establish a working group for mirrors.
+\item Find a better way to manage privileges on the server
+\item Obtain more computing resources, especially disk space and bandwidth
+\end{enumerate}
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\huge{\centerline{The End}}
+\tiny{\centerline{Terribly sorry for broken English}}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\end{document} 
