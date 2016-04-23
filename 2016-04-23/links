@@ -1,0 +1,11 @@
+What is Docker
+https://www.docker.com/what-docker
+
+Installation on CentOS
+https://docs.docker.com/engine/installation/linux/centos/
+
+Pipanyifan
+https://github.com/sjtug/mirror-docker/blob/3d72cab7f1b07bf90becd29a42d26fb3cb871bf2/Dockerfile
+
+Dockerfile Best Practices
+https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/
