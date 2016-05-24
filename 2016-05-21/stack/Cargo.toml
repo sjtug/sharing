@@ -1,0 +1,6 @@
+[package]
+name = "stack"
+version = "0.1.0"
+authors = ["codeworm96 <codeworm96@outlook.com>"]
+
+[dependencies]

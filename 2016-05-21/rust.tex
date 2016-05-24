@@ -1,0 +1,99 @@
+\documentclass[11pt]{beamer}
+\usetheme{Luebeck}
+\usecolortheme{beaver}
+
+\usepackage{minted}
+\usepackage{graphicx}
+
+\begin{document}
+\title{Rust}
+\author{Zhang Yuning}
+\date{\today}
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+\begin{frame}
+\frametitle{What is Rust?}
+\begin{quotation}
+"Rust is a systems programming language that runs blazingly fast,
+prevents nearly all segfaults, and guarantees thread safety."
+\rightline{-- rust-lang.org}
+\end{quotation}
+\end{frame}
+
+\begin{frame}
+\frametitle{Fast}
+\begin{itemize}
+\item Compiles to native code
+\item No garbage collector
+\item Most abstractions have zero cost
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Functional}
+\begin{itemize}
+\item Closures
+\item Algebraic Data Types
+\item Pattern matching
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Safe}
+\begin{itemize}
+\item Ownership
+\item Borrowing
+\item Lifetime
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Try it}
+\begin{itemize}
+\item https://play.rust-lang.org/
+\item rustup: the Rust toolchain installer
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Rustup}
+rustup installs The Rust Programming Language from the official release channels,
+enabling you to easily switch between stable, beta, and nightly compilers
+and keep them updated.
+\end{frame}
+
+\begin{frame}
+\frametitle{Cargo, Rust’s Package Manager}
+Cargo downloads your Rust project’s dependencies and compiles your project.
+\end{frame}
+
+\begin{frame}
+\frametitle{hello, world!}
+cargo new --bin helloworld
+\end{frame}
+
+\begin{frame}
+\frametitle{Borrowing}
+Newcomers to Rust often find themselves "fighting with the borrow checker"
+trying to get their code to compile
+\end{frame}
+
+\begin{frame}
+\frametitle{Borrowing Rules}
+\begin{itemize}
+\item You can't keep borrowing something after it stops existing.
+\item One object may have many immutable references to it (\&T).
+\item OR exactly one mutable reference (\&mut T) (not both).
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Demonstration}
+How will a beginner fight with the borrow checker
+\end{frame}
+
+\end{document}
