@@ -39,9 +39,9 @@
 		<div class="reveal">
 
 			<div class="slides">
-				<section>
+				<section data-math>
                     <h1>SJTUG Sign Party</h1>
-                    <h4>Basic GPG Usage x Key Exchange x Yubikey</h4>
+                    <h4>Basic GPG Usage$\times$Key Exchange$\times$Yubikey</h4>
                     <p>by Zheng Luo @ <a href="http://sjtug.org"><img src="./media/logo.png" width="50" class="plain"
                             style="vertical-align:bottom; display: inline-block; margin: 0 auto" alt="SJTUG"></a></p>
 				</section>
@@ -363,7 +363,8 @@
 					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/math-katex/math-katex.js', async: true }
 				]
 			});
 
