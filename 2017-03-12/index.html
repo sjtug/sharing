@@ -133,10 +133,12 @@
                             With A's pubkey, you can:
                             - Encrypt a message
                             - Verify A's signature
+                            - Trust others' pubkeys signed by A
 
                             With A's secretkey, you can:
                             - Descrypt a message
                             - Make a signature for file
+                            - Sign others' pubkeys
                         </script>
                     </section>
                     <section data-markdown>
@@ -159,6 +161,29 @@
                     </section>
                     <section data-markdown>
                         <script type="text/template">
+                            ### Export and backup your key
+                            Export pubkey:
+                            ```
+                            ➜  ~ gpg --armor -o /some/safe/place/0x854042FAE8569559.pub \
+                                --export 0x854042FAE8569559 
+                            ```
+
+                            Export seckey
+                            ```bash
+                            ➜  ~ gpg --armor -o /some/very/safe/place/0x854042FAE8569559.sec \
+                                --export-secret-keys 0x854042FAE8569559
+                            ```
+
+                            Import with:
+                            ```bash
+                            ➜  ~  gpg --import foobar.key
+                            ```
+
+                            > **WARNING** Keep your seckey backup away from Internet!
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
                             ### Upload Key Pair
                             ```
                             gpg --send-keys 0x854042FAE8569559
@@ -175,7 +200,7 @@
                     <section data-markdown>
                         <script type="text/template">
                             ### Trust others' pubkey
-                            GPG provides no builtin rules to secure exchanging of pubkey. Check key fingerprint manually.
+                            Check key fingerprint manually to decide whether you should trust this pubkey.
                             ```
                             ➜  ~ gpg --edit-key 0x854042FAE8569559
                             [unknown] (1). Zheng Luo(Demo Use ONLY) (Only for SJTUG sign party) <vicluo96@gmail.com>
@@ -191,7 +216,29 @@
                             m = back to the main menu
 
                             Your decision? 5
-                            gpg> q
+                            ```
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                            ### Web of Trust
+                            It is quite annoying to manually check everyone's pubkey.
+                            If I trust A, and A trusts B, then I should trust B!
+
+                            You can use your *seckey* to *sign* someone's pubkey to declare your confirmation.
+                            ```bash
+                            ➜  ~  gpg -u 0x854042FAE8569559 --sign-key 0x6A0C4DAB258D8B6F
+                            Primary key fingerprint: C3C6 B563 DDB2 0ADA DB2A  B983 6A0C 4DAB 258D 8B6F
+                            Wang Zhuyang <hawnzug@gmail.com>
+
+                            Are you sure that you want to sign this key with your
+                            key "Zheng Luo(Demo Use ONLY) (Only for SJTUG sign party) <vicluo96@gmail.com>" (0x854042FAE8569559)
+
+                            Really sign? (y/N) y
+                            ➜  ~ gpg -o signed.pub --export 0x6A0C4DAB258D8B6F
+                            # Send this pubkey back to its owner, then its owner should
+                            # import it back and send it to keyserver
                             ```
                         </script>
                     </section>
@@ -199,9 +246,11 @@
                     <section data-markdown>
                         <script type="text/template">
                         ### Now exchange keys!
-                        Note down your pubkey id at [http://dwz.cn/sjtug-sign-party](http://dwz.cn/sjtug-sign-party)
+                        Note down your pubkey id on a paper(recommended) or [http://dwz.cn/sjtug-sign-party](http://dwz.cn/sjtug-sign-party)
 
-                        > Short review
+                        > **WARNING** You should check face to face before trusting others' key!
+
+                        > 
                         ```
                         gpg --full-gen-key
                         gpg --list-keys
@@ -209,7 +258,9 @@
                         gpg --recv-keys {{others_pubkey_id}}
                         gpg --edit-key {{others_pubkey_id}}
                         gpg> trust
+                        gpg> sign
                         gpg> q
+                        gpg --armor -o others-abc.pub --export {{others_pubkey_id}}
                         ```
                         </script>
                     </section>
