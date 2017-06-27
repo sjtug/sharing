@@ -1,0 +1,488 @@
+1
+00:00:03,290 --> 00:00:06,299
+<font color="#E5E5E5">Linux mayor the name in</font><font color="#CCCCCC"> connection</font><font color="#E5E5E5"> with</font>
+
+2
+00:00:06,299 --> 00:00:08,519
+computers a few times<font color="#E5E5E5"> you may have heard</font>
+
+3
+00:00:08,519 --> 00:00:10,110
+<font color="#E5E5E5">of its importance in the electronics</font>
+
+4
+00:00:10,110 --> 00:00:13,920
+community but what is Linux it's up in
+
+5
+00:00:13,920 --> 00:00:16,289
+short<font color="#E5E5E5"> Linux is what is known</font><font color="#CCCCCC"> as an</font>
+
+6
+00:00:16,289 --> 00:00:18,660
+operating system<font color="#CCCCCC"> curve now don't get</font>
+
+7
+00:00:18,660 --> 00:00:21,029
+scared<font color="#CCCCCC"> by the name an operating system</font>
+
+8
+00:00:21,029 --> 00:00:22,890
+is pretty<font color="#E5E5E5"> much what it sounds like</font><font color="#CCCCCC"> a</font>
+
+9
+00:00:22,890 --> 00:00:25,650
+system<font color="#E5E5E5"> that</font><font color="#CCCCCC"> operates something</font><font color="#E5E5E5"> in this</font>
+
+10
+00:00:25,650 --> 00:00:27,449
+case<font color="#E5E5E5"> an operating</font><font color="#CCCCCC"> system is something</font>
+
+11
+00:00:27,449 --> 00:00:31,050
+<font color="#CCCCCC">like Windows or Mac OS X is a buffer</font>
+
+12
+00:00:31,050 --> 00:00:33,390
+<font color="#CCCCCC">between</font><font color="#E5E5E5"> the user and the actual nuts and</font>
+
+13
+00:00:33,390 --> 00:00:35,340
+bolts<font color="#CCCCCC"> of the machine itself</font><font color="#E5E5E5"> rather than</font>
+
+14
+00:00:35,340 --> 00:00:37,590
+<font color="#E5E5E5">you having to plug and unplug all the</font>
+
+15
+00:00:37,590 --> 00:00:39,780
+wires inside<font color="#E5E5E5"> your computer</font><font color="#CCCCCC"> to make it do</font>
+
+16
+00:00:39,780 --> 00:00:42,030
+<font color="#CCCCCC">something</font><font color="#E5E5E5"> the operating system or OS</font>
+
+17
+00:00:42,030 --> 00:00:44,969
+<font color="#E5E5E5">does that for you</font><font color="#CCCCCC"> this</font><font color="#E5E5E5"> is what Linux is</font>
+
+18
+00:00:44,969 --> 00:00:46,410
+but with a<font color="#E5E5E5"> twist</font>
+
+19
+00:00:46,410 --> 00:00:48,930
+<font color="#E5E5E5">as I said before Linux is an operating</font>
+
+20
+00:00:48,930 --> 00:00:51,149
+<font color="#CCCCCC">system kernel which means that in its</font>
+
+21
+00:00:51,149 --> 00:00:53,250
+bare-bones<font color="#E5E5E5"> form is nothing</font><font color="#CCCCCC"> more than a</font>
+
+22
+00:00:53,250 --> 00:00:55,620
+pile of<font color="#E5E5E5"> code over</font><font color="#CCCCCC"> three million lines of</font>
+
+23
+00:00:55,620 --> 00:00:57,600
+<font color="#E5E5E5">it in fact sort</font><font color="#CCCCCC"> of like a lump of</font>
+
+24
+00:00:57,600 --> 00:00:59,640
+unshaped clay<font color="#E5E5E5"> this allows corporations</font>
+
+25
+00:00:59,640 --> 00:01:02,430
+<font color="#E5E5E5">businesses and</font><font color="#CCCCCC"> developers and alike</font><font color="#E5E5E5"> to</font>
+
+26
+00:01:02,430 --> 00:01:04,589
+shape it into<font color="#E5E5E5"> whatever form</font><font color="#CCCCCC"> of operating</font>
+
+27
+00:01:04,589 --> 00:01:06,780
+system they want they<font color="#E5E5E5"> get the kernel and</font>
+
+28
+00:01:06,780 --> 00:01:09,090
+make it into an OS for whatever they
+
+29
+00:01:09,090 --> 00:01:12,390
+need<font color="#E5E5E5"> so it is powerful use in mind how</font>
+
+30
+00:01:12,390 --> 00:01:14,880
+much do you think<font color="#E5E5E5"> Linux costs the answer</font>
+
+31
+00:01:14,880 --> 00:01:16,200
+is nothing
+
+32
+00:01:16,200 --> 00:01:20,130
+Linux is an ongoing<font color="#E5E5E5"> open source project</font>
+
+33
+00:01:20,130 --> 00:01:21,990
+<font color="#E5E5E5">it is a collaborative effort by</font>
+
+34
+00:01:21,990 --> 00:01:23,970
+developers around<font color="#E5E5E5"> the</font><font color="#CCCCCC"> world</font><font color="#E5E5E5"> each</font>
+
+35
+00:01:23,970 --> 00:01:26,040
+contributing their code<font color="#E5E5E5"> to the kernel to</font>
+
+36
+00:01:26,040 --> 00:01:29,549
+improve its capability<font color="#E5E5E5"> so how did this</font>
+
+37
+00:01:29,549 --> 00:01:32,970
+all start<font color="#CCCCCC"> the story</font><font color="#E5E5E5"> of</font><font color="#CCCCCC"> Linux begins at</font>
+
+38
+00:01:32,970 --> 00:01:35,820
+the<font color="#CCCCCC"> Hutt</font><font color="#E5E5E5"> the Helsinki University of</font>
+
+39
+00:01:35,820 --> 00:01:40,140
+<font color="#CCCCCC">Technology in 1991 at</font><font color="#E5E5E5"> the time the Cold</font>
+
+40
+00:01:40,140 --> 00:01:42,720
+<font color="#E5E5E5">War was drawing to</font><font color="#CCCCCC"> a close cell</font><font color="#E5E5E5"> phones</font>
+
+41
+00:01:42,720 --> 00:01:44,820
+were the size of bricks<font color="#E5E5E5"> and computers</font>
+
+42
+00:01:44,820 --> 00:01:47,430
+were beginning their slow<font color="#CCCCCC"> ature conquest</font>
+
+43
+00:01:47,430 --> 00:01:49,010
+of<font color="#CCCCCC"> the world</font>
+
+44
+00:01:49,010 --> 00:01:50,660
+it was there<font color="#E5E5E5"> that a man named</font><font color="#CCCCCC"> Linus</font>
+
+45
+00:01:50,660 --> 00:01:53,810
+<font color="#CCCCCC">Torvalds a 21 year old</font><font color="#E5E5E5"> second year</font>
+
+46
+00:01:53,810 --> 00:01:56,150
+computer<font color="#CCCCCC"> science student</font><font color="#E5E5E5"> and self-taught</font>
+
+47
+00:01:56,150 --> 00:01:58,850
+hacker<font color="#E5E5E5"> began work on a new operating</font>
+
+48
+00:01:58,850 --> 00:02:00,950
+system<font color="#E5E5E5"> but was going to be unique about</font>
+
+49
+00:02:00,950 --> 00:02:03,230
+this operating<font color="#E5E5E5"> system</font><font color="#CCCCCC"> kernel</font><font color="#E5E5E5"> was</font><font color="#CCCCCC"> that</font><font color="#E5E5E5"> it</font>
+
+50
+00:02:03,230 --> 00:02:05,750
+was<font color="#E5E5E5"> going to be free something not</font>
+
+51
+00:02:05,750 --> 00:02:08,389
+common at the time<font color="#E5E5E5"> the concept of free</font>
+
+52
+00:02:08,389 --> 00:02:10,490
+software<font color="#CCCCCC"> had only just started to become</font>
+
+53
+00:02:10,490 --> 00:02:12,590
+<font color="#CCCCCC">popular thanks to the work</font><font color="#E5E5E5"> of</font><font color="#CCCCCC"> a</font>
+
+54
+00:02:12,590 --> 00:02:15,620
+visionary named<font color="#E5E5E5"> Richard Stallman some</font>
+
+55
+00:02:15,620 --> 00:02:17,720
+years before<font color="#CCCCCC"> Richard had created a</font>
+
+56
+00:02:17,720 --> 00:02:19,820
+<font color="#E5E5E5">licensed community for free computer</font>
+
+57
+00:02:19,820 --> 00:02:22,400
+software in the 80s called<font color="#CCCCCC"> the GPL</font>
+
+58
+00:02:22,400 --> 00:02:25,100
+license<font color="#E5E5E5"> with hopes the developers would</font>
+
+59
+00:02:25,100 --> 00:02:27,170
+<font color="#CCCCCC">contribute their code</font><font color="#E5E5E5"> and projects</font>
+
+60
+00:02:27,170 --> 00:02:28,730
+allowing<font color="#CCCCCC"> him to build a</font><font color="#E5E5E5"> thriving</font>
+
+61
+00:02:28,730 --> 00:02:31,640
+community<font color="#CCCCCC"> by</font><font color="#E5E5E5"> 1991 this has started to</font>
+
+62
+00:02:31,640 --> 00:02:34,430
+gain some<font color="#CCCCCC"> momentum</font><font color="#E5E5E5"> but had yet to see</font>
+
+63
+00:02:34,430 --> 00:02:36,620
+the emergence<font color="#E5E5E5"> of a full operating system</font>
+
+64
+00:02:36,620 --> 00:02:38,960
+<font color="#E5E5E5">Richard had begun the construction of</font>
+
+65
+00:02:38,960 --> 00:02:41,990
+<font color="#E5E5E5">his own operating system known as herd</font>
+
+66
+00:02:41,990 --> 00:02:44,330
+but it would be some years before<font color="#CCCCCC"> it was</font>
+
+67
+00:02:44,330 --> 00:02:47,030
+ready<font color="#E5E5E5"> and leanness could not wait</font><font color="#CCCCCC"> that</font>
+
+68
+00:02:47,030 --> 00:02:50,990
+long<font color="#CCCCCC"> on</font><font color="#E5E5E5"> August 25th 1991</font><font color="#CCCCCC"> a historic post</font>
+
+69
+00:02:50,990 --> 00:02:52,700
+was sent out<font color="#E5E5E5"> at the Helsinki University</font>
+
+70
+00:02:52,700 --> 00:02:55,880
+of<font color="#CCCCCC"> Technology hello</font><font color="#E5E5E5"> everybody out there</font>
+
+71
+00:02:55,880 --> 00:02:58,910
+using<font color="#CCCCCC"> MINIX I'm doing a free operating</font>
+
+72
+00:02:58,910 --> 00:03:01,610
+system<font color="#E5E5E5"> just the</font><font color="#CCCCCC"> Hobby won't be big and</font>
+
+73
+00:03:01,610 --> 00:03:04,760
+professional like new probably<font color="#CCCCCC"> never</font>
+
+74
+00:03:04,760 --> 00:03:07,100
+support<font color="#E5E5E5"> anything other than 80 hard</font>
+
+75
+00:03:07,100 --> 00:03:09,350
+disks<font color="#E5E5E5"> as that's all I have</font>
+
+76
+00:03:09,350 --> 00:03:11,900
+by mid September of that year<font color="#E5E5E5"> first</font>
+
+77
+00:03:11,900 --> 00:03:14,750
+version of<font color="#E5E5E5"> the kernel known as Linux was</font>
+
+78
+00:03:14,750 --> 00:03:16,670
+released<font color="#CCCCCC"> leanness himself hardly</font>
+
+79
+00:03:16,670 --> 00:03:18,739
+<font color="#E5E5E5">believed that anything would come of his</font>
+
+80
+00:03:18,739 --> 00:03:20,530
+little<font color="#E5E5E5"> pet project soon however</font>
+
+81
+00:03:20,530 --> 00:03:22,970
+developers<font color="#E5E5E5"> from all over were gathering</font>
+
+82
+00:03:22,970 --> 00:03:24,860
+enthusiastically around<font color="#E5E5E5"> this new OS</font>
+
+83
+00:03:24,860 --> 00:03:27,950
+<font color="#E5E5E5">first</font><font color="#CCCCCC"> open-source operating</font><font color="#E5E5E5"> system</font><font color="#CCCCCC"> had</font>
+
+84
+00:03:27,950 --> 00:03:31,220
+begun to<font color="#E5E5E5"> move forward in October the</font>
+
+85
+00:03:31,220 --> 00:03:33,110
+second version<font color="#E5E5E5"> was</font><font color="#CCCCCC"> released along with</font>
+
+86
+00:03:33,110 --> 00:03:36,050
+<font color="#E5E5E5">this famous</font><font color="#CCCCCC"> declaration from leaders you</font>
+
+87
+00:03:36,050 --> 00:03:39,050
+pine for<font color="#CCCCCC"> the nice days of MINIX 1.1 when</font>
+
+88
+00:03:39,050 --> 00:03:40,850
+men were men<font color="#CCCCCC"> and</font><font color="#E5E5E5"> wrote their own device</font>
+
+89
+00:03:40,850 --> 00:03:43,160
+drivers<font color="#E5E5E5"> no more all-nighters</font><font color="#CCCCCC"> to get a</font>
+
+90
+00:03:43,160 --> 00:03:45,290
+nifty program working<font color="#E5E5E5"> that this post</font>
+
+91
+00:03:45,290 --> 00:03:47,540
+<font color="#E5E5E5">might be just for you my December</font>
+
+92
+00:03:47,540 --> 00:03:50,360
+<font color="#E5E5E5">version 3 was out and being sculpted by</font>
+
+93
+00:03:50,360 --> 00:03:52,489
+developers<font color="#CCCCCC"> their</font><font color="#E5E5E5"> number</font><font color="#CCCCCC"> is growing</font><font color="#E5E5E5"> from</font>
+
+94
+00:03:52,489 --> 00:03:55,070
+hundreds<font color="#E5E5E5"> to thousands Linux was however</font>
+
+95
+00:03:55,070 --> 00:03:57,450
+not without opposition
+
+96
+00:03:57,450 --> 00:03:59,700
+famous professor<font color="#CCCCCC"> Andrew</font><font color="#E5E5E5"> Tenenbaum who</font>
+
+97
+00:03:59,700 --> 00:04:02,910
+authored<font color="#CCCCCC"> MINIX</font><font color="#E5E5E5"> dubbed Linux obsolete</font><font color="#CCCCCC"> I</font>
+
+98
+00:04:02,910 --> 00:04:04,590
+still maintain<font color="#E5E5E5"> the point at designing a</font>
+
+99
+00:04:04,590 --> 00:04:06,690
+model<font color="#E5E5E5"> of the kernel in 1991 is a</font>
+
+100
+00:04:06,690 --> 00:04:08,430
+fundamental error<font color="#CCCCCC"> be</font><font color="#E5E5E5"> thankful you are</font>
+
+101
+00:04:08,430 --> 00:04:10,080
+<font color="#E5E5E5">not my student you would not get a high</font>
+
+102
+00:04:10,080 --> 00:04:12,300
+grade for such a design<font color="#E5E5E5"> however this did</font>
+
+103
+00:04:12,300 --> 00:04:13,709
+<font color="#CCCCCC">not discourage the stubborn</font><font color="#E5E5E5"> young</font>
+
+104
+00:04:13,709 --> 00:04:16,350
+programmer<font color="#CCCCCC"> Lina's responded</font><font color="#E5E5E5"> your job is</font>
+
+105
+00:04:16,350 --> 00:04:18,690
+being a professor and researcher<font color="#E5E5E5"> that's</font>
+
+106
+00:04:18,690 --> 00:04:20,579
+one hell of a good excuse for<font color="#E5E5E5"> some of</font>
+
+107
+00:04:20,579 --> 00:04:23,130
+the brain damages of<font color="#CCCCCC"> MINIX</font><font color="#E5E5E5"> and Linux</font>
+
+108
+00:04:23,130 --> 00:04:24,840
+development continued to gain momentum
+
+109
+00:04:24,840 --> 00:04:27,780
+<font color="#E5E5E5">soon commercial organizations moved in</font>
+
+110
+00:04:27,780 --> 00:04:29,720
+bringing to bear<font color="#E5E5E5"> industrial-strength</font>
+
+111
+00:04:29,720 --> 00:04:33,060
+<font color="#E5E5E5">Linux was no longer just a hackers toy</font>
+
+112
+00:04:33,060 --> 00:04:36,270
+<font color="#E5E5E5">so where is Linux today well for the</font>
+
+113
+00:04:36,270 --> 00:04:38,130
+most part<font color="#E5E5E5"> everywhere Linux is running</font>
+
+114
+00:04:38,130 --> 00:04:40,650
+the world's fastest supercomputers<font color="#CCCCCC"> as</font>
+
+115
+00:04:40,650 --> 00:04:42,840
+well as many<font color="#E5E5E5"> network servers including</font>
+
+116
+00:04:42,840 --> 00:04:45,270
+the ones that power Google blogger
+
+117
+00:04:45,270 --> 00:04:49,860
+tumblr<font color="#E5E5E5"> Facebook PayPal Twitter YouTube</font>
+
+118
+00:04:49,860 --> 00:04:53,880
+and many others Linux is also the base
+
+119
+00:04:53,880 --> 00:04:56,100
+<font color="#E5E5E5">kernel for many phone operating systems</font>
+
+120
+00:04:56,100 --> 00:04:59,669
+such<font color="#CCCCCC"> as Android</font><font color="#E5E5E5"> you use Linux</font><font color="#CCCCCC"> every</font><font color="#E5E5E5"> day</font>
+
+121
+00:04:59,669 --> 00:05:02,400
+<font color="#E5E5E5">and Linux will no doubt be around for</font>
+
+122
+00:05:02,400 --> 00:00:00,000
+many<font color="#E5E5E5"> years to come</font>
+

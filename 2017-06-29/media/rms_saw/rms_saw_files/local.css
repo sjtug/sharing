@@ -1,0 +1,94 @@
+.pageheader {
+        background: darkgreen;
+	color: black;
+}
+
+body, .sidebar, .notebox {
+	background: black;
+}
+
+hr {
+	color: #6F6;
+	background-color: black;
+}
+
+.pageheader, #pageinfo, .sidebar {
+	border-color: darkgreen;
+}
+
+.pageheader .actions ul li {
+	background: darkgreen;
+	color: darkgreen;
+	border-color: darkgreen;
+}
+
+.pageheader a {
+	color: black;
+}
+
+input#searchbox {
+	color: #18d818;
+	background-color: #0;
+	text-decoration: underline;
+	background: none;
+}
+
+code, pre {
+        background: black;
+}
+
+.notebox {
+	border: 1px solid darkgreen;
+	color: darkgreen !important;
+}
+
+@font-face {
+  font-family: GlassTTYVT220;
+  src: local("Glass TTY VT220"), local("Glass TTY VT220 Medium"), url(Glass_TTY_VT220.ttf) format("truetype");
+}
+
+body, pre, div, input, span.title {
+  font-size: 20px;
+  font-family: GlassTTYVT220, monospace;
+  color: #18d818;
+}
+
+span.noshow {
+  display: none;
+}
+
+span.notfound {
+  text-decoration: blink;
+}
+
+a.plain {
+  text-decoration: none;
+}
+
+input {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+input[type=submit] {
+  text-decoration: underline;
+}
+
+input[type=text], input[type=submit]:active, div.find a {
+  background-color: #18d818;
+  color: #000900;
+}
+
+html, input[type=submit], div.find a:active {
+  color: #18d818;
+  background-color: #000900;
+}
+
+a {
+  color: #1fe81f;
+}
+
+a:hover {
+  color: #2ff82f;
+}

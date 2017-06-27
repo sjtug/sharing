@@ -1,0 +1,471 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>自由与开源软件——介绍与历史</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+    <link rel="stylesheet" href="media/glass_tty.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>自由与开源软件——介绍与历史</h1>
+          <p>
+            骆铮 @ <a href="http://sjtug.org"><img src="./media/logo.png" width="50" class="plain"
+                  style="vertical-align:bottom; display: inline-block; margin: 0 auto" alt="SJTUG">SJTUG</a>
+          </p>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ## 基础概念
+            $$ \xrightarrow{用户编写} 人类可阅读修改的源代码 \xrightarrow{编译} 机器可执行的文件 $$
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ## 问题
+            - 为什么微软在前中期选择闭源？为什么最近又开始宣称爱开源
+              (MS loves Open Source)？它真的爱开源吗？
+            - 我有一篇文章/一些代码需要发布，我应该选取什么许可证？
+            - 开源/自由软件从哪里获得资金、人手？
+          </textarea>
+        </section>
+
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              ## 历史
+
+              > Value your freedom or you will lose it, teaches history.
+              >
+              > \- Richard M. Stallman
+            </textarea>
+          </section>
+
+          <section data-markdown>
+            <textarea data-template>
+              ### 早期的软件/信息交换方式(50/60年代)
+
+              - 学校、政府开发
+              - 圈子较小
+              - 源代码发行（开源）
+            </textarea>
+          </section>
+
+          <section data-markdown>
+            <textarea data-template>
+
+              #### 大型机的用户组
+              ![IBM 701](./media/ibm701_tape.jpg) <!-- .element: class="stretch" style="max-height:300px" -->
+              - IBM 701, DEC等大型机的用户组：SHARE, DECUS
+              - 内部交换软件
+              - 源代码发布
+            </textarea>
+          </section>
+
+          <section data-markdown>
+            <textarea data-template>
+              #### 开源标准
+              > ```
+              > Network Working Group            Steve Crocker
+              > Request for Comments: 1          UCLA
+              >               7 April 1969
+              >           Title:   Host Software
+              >           Author:   Steve Crocker
+              >           Installation:   UCLA
+              >           Date:   7 April 1969
+              > ```
+
+              - ARPANET: Request for Comments(RFC)
+              - 能被自由接受、使用与扩展
+            </textarea>
+          </section>
+
+
+          <section data-markdown>
+            <textarea data-template>
+              #### UNIX/C/BSD
+              - 1969年开始开发*UNIX*操作系统
+              - 1971年：C语言
+              - 1973：用C重写*UNIX*
+              - 1969~1979: *UNIX* v1~v7：公开研究
+              - [模拟器](./media/pdp_emulator/pdp_emulator.html)
+              - 1979：Berkeley在*UNIX* v6基础上添加了vi编辑器和Pascal编译器，发行了
+                The Second Berkeley Software Distribution(*2BSD*)
+            </textarea>
+          </section>
+
+        </section>
+
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              ### 80年代初 - 开源软件遭遇挫折
+
+              - 软件越来越复杂，使用者越来越多
+              - 开始出现单独的“软件开发商”
+              - Hacker社群瓦解，闭源成为主流
+
+            </textarea>
+          </section>
+
+          <section data-markdown>
+            <textarea data-template>
+              #### Microsoft创立
+
+              - 1975年，Bill Gates写出了 Altair BASIC 解释器，并以专有许可证对外出售。
+              - 同年4月4日，微软创立
+
+              ![ms_staff](./media/ms_staff.jpg)
+              <!-- .element class="stretch" style="max-height: 250px" -->
+
+              - 微软Basic解释器通过盗版日益流行
+            </textarea>
+          </section>
+
+          <section data-markdown>
+            <textarea data-template>
+              #### 公开信事件
+              - 1976年2月3日，Gates撰写了一封公开信抨击未付费使用Altair BASIC的行为
+              > Open Letter to Hobbyists, Gates, 1976
+              >
+              > ……你们必须注意到，你们中大多数人的软件是偷来的。……这公平吗？……
+              > 有谁会在没有任何报酬的情况下来做这些专业的工作？
+              > 什么样的爱好者可以为他的产品投入三人年（man-year）的开发时间，
+              > 并且发现所有的错误、编写文档以及免费发布这个产品？
+              <!-- .element style="font-size: xx-large" -->
+            </textarea>
+          </section>
+
+          <section data-markdown>
+            <textarea data-template>
+              #### 公开信事件 - 反应
+              - 越来越多的软件公司成立、核算成本并开始收费
+              - 业余爱好者(hobbist)和商业公司公司划清界限
+              - 社区反应：
+                - 虚假宣传（硬件395刀, 操作系统/BASIC等软件1000刀)
+                - Gates在政府赞助的电脑上开发
+            </textarea>
+          </section>
+
+          <section data-markdown>
+            <textarea data-template>
+              #### IBM不再公开软件源代码(1983)
+              > 今天我们宣布……
+              > 对于目前以二进制文件散发的部分程序，源文件将不再公开。
+              > 同时，对于已有的程序：
+              > - 禁止反向工程
+              > - 禁止私自再分发修改后的程序
+
+            </textarea>
+          </section>
+
+          <section data-markdown>
+            <textarea data-template>
+              ### UNIX的商业化
+
+              - UNIX = 通用操作系统
+              - 硬件制造商提供专有、闭源的Unix改版
+              - 微软基于Unix发行了专有的Xenix
+              ![ms_xenix](./media/ms_xenix.png)
+            </textarea>
+          </section>
+
+          <section data-markdown>
+            <textarea data-template>
+              ### UNIX的商业化(2)
+
+              - 第一批用UNIX的学生毕业进入了公司
+              - UNIX v8~v10只向一些大学公开，之后开发终止
+              - 1982, AT&amp;T发布商业版UNIX System Ⅲ，不再包含源代码
+            </textarea>
+          </section>
+        </section>
+
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              ## 自由软件运动 &amp; GNU/Linux
+              > ### Free Unix!
+              > <!-- .element class="tty-font" -->
+              > Starting this Thanksgiving I am going to write a complete Unix-compatible software
+              > system called GNU (for Gnu's Not Unix), and give it away free(1) to everyone who can use it.
+              >               <!-- .element class="tty-font" -->
+              > \- RMS, 1983
+
+            </textarea>
+          </section>
+
+          <section>
+              <h3>Richard M. Stallman</h3>
+              <video controls>
+                <source src="./media/rms_speak/rms_speak.mp4" type="video/mp4">
+                <track label="English" kind="subtitles" srclang="en" src="./media/rms_speak/rms_speak.vtt" default>
+              </video>
+          </section>
+
+          <section data-markdown>
+            <textarea data-template>
+              ### RMS眼中的1983年
+              [OldUseNet](./media/rms_saw/rms_saw.htm)
+              - 各种各样的操作系统、软件层出不穷
+              - 大多需要收费、且闭源
+            </textarea>
+          </section>
+
+          <section data-markdown>
+            <textarea data-template>
+              ### GNU项目(1983/09/27)
+              - FREE UNIX!
+              - GNU = GNU is Not Unix
+              - 兼容Unix的软件系统
+              - 编辑器/Shell/C 编译器/系统内核/连接器/表格软件/...
+              > - free to everyone who can use it <!-- .element class="tty-font" -->
+              > - if I like a program, I must share it with other people who like it <!-- .element class="tty-font" -->
+            </textarea>
+          </section>
+
+          <section data-markdown>
+            <textarea data-template>
+              ### GNU项目 - 自由软件
+              - 自由软件(Free software)
+              - Free $=$ Libre $\neq$ Unpaid
+              - 允许：
+                1. 以任何目的运行软件
+                2. 自由研究与修改软件
+                3. 自由分发软件
+                4. 自由增强并散发增强版本
+            </textarea>
+          </section>
+
+          <section data-markdown>
+            <textarea data-template>
+              ### GNU项目 - GPL协议
+              ![GPL logo](./media/gpl_logo.png) <!-- .element class="stretch" style="max-height: 200px; background-color: white;" -->
+              - GPL =  GNU General Public License
+              - Copyleft/传染性
+                - 使用GPL协议发布的软件必须许可公众自由运行、复制、传播、修改与再分发，唯需：
+                - 修改与再分发的版本必须也按照GPL流通
+
+            </textarea>
+          </section>
+
+          <section data-markdown>
+            <textarea data-template>
+              ### GNU项目(2)
+              ![GNU logo](./media/gnu.png) <!-- .element class="stretch" style="max-height: 300px" -->
+              - 到了1989年，项目除内核外已经基本完工
+              - GCC、GDB、Emacs都已经成为了市场领导者
+              - Free Software Foundation(FSF)
+            </textarea>
+          </section>
+
+          <section>
+              <h3>Linux内核</h3>
+              <video controls>
+                <source src="./media/linux_doc/linux_doc.mp4" type="video/mp4">
+                <track label="English" kind="subtitles" srclang="en" src="./media/linux_doc/linux_doc.vtt" default>
+              </video>
+          </section>
+
+          <section data-markdown>
+            <textarea data-template>
+              ### Linux
+
+              ![Tux](./media/tux.png) <!-- .element class="stretch" style="height: 180px; background-color: white;" -->
+              ![Linus](./media/linus.jpe) <!-- .element class="stretch" style="height: 180px; background-color: white;" -->
+                > Hello everybody out there using minix,
+                > I'm doing a (free) operating system
+                > (just a hobby, won't be big and
+                > professional like gnu)
+                >  for 386(486) AT clones. <!-- .element class="tty-font" -->
+                >
+            </textarea>
+          </section>
+
+          <section data-markdown>
+            <textarea data-template>
+              ### GNU/Linux
+
+              - Linux采用了GPLv2许可证
+              - Linux内核$+$GNU的软件 $=$ 操作系统！
+            </textarea>
+          </section>
+
+          <section data-markdown>
+            <textarea data-template>
+              ### Debian发行版
+
+              - 把Linux内核和软件包打包到一起 $\rightarrow$ 发行版
+              - 1993, Debian:
+
+              ![Debian](./media/debian.png) <!-- .element class="stretch" style="height: 150px; background-color: white;" -->
+              ![ian](./media/ian.jpg) <!-- .element class="stretch" style="height: 150px; background-color: white;" -->
+
+              > i’m committing suicide tonight.. do not intervene as i have many stories to tell and do not want them to die with me
+              > — Ian Murdock (@imurdock) 12/28, 2015
+            </textarea>
+          </section>
+
+          <section data-markdown>
+            <textarea data-template>
+              ### 大教堂与集市
+
+              Eric S. Raymond, 《大教堂与集市》(1997)：
+              > (Linus Torvalds)的开发风格令人惊讶:尽早尽多的发布,委托所有可以委托的事,开放到了泛滥的程度.这里没有建造大教堂的安静和虔诚;
+              >  Linux社区更像一个充满不同议程和方法的嘈杂的大集市。
+            </textarea>
+          </section>
+        </section>
+
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              ## 90年代～：当代开源
+
+              - 开源软件成为商业模式
+              - 自由软件面临困境
+            </textarea>
+          </section>
+
+          <section data-markdown>
+            <textarea data-template>
+              ### 开源$\neq$自由
+              - 开源：开放源代码
+              - 自由软件：自由使用、研究、修改、再分发，尊重用户自由
+            </textarea>
+          </section>
+
+          <section data-markdown>
+            <textarea data-template>
+              ### Linux内核2016贡献者公司名单
+```
+Company         Percent of total
+Intel           12.9%
+Red Hat         8.0%
+None            7.7%
+Unknown         6.8%
+Linaro          4.0%
+Samsung         3.9%
+SUSE            3.2%
+IBM             2.7%
+Consultants     2.6%
+```
+前10名贡献了超过57%的代码
+            </textarea>
+          </section>
+
+          <section data-markdown>
+            <textarea data-template>
+              ### 微软对开源与自由软件的态度
+              - 1998年《万圣节文档》：
+              > embrace, extend, extinguish
+              - 21世纪后，微软开源了大量项目
+              - 2017年3月：
+
+              ![ms_loves_os](./media/ms_loves_os.png)
+            </textarea>
+          </section>
+
+          <section data-markdown>
+            <textarea data-template>
+              ### 各种软件许可证
+              - AGPL：同GPL，通过网络提供服务也属于“再分发”
+              - GPL: 允许自由使用分发修改，再分发的产品必须同样以GPL发布。如Linux内核
+              - Apache 2.0： 允许自由使用分发修改，但必须声明修改，也不能利用原项目名称，修改后产品不需要开源。如Android
+              - MIT：只需保留MIT协议本身，其余无约束，如jQuery
+            </textarea>
+          </section>
+
+          <section data-markdown>
+            <textarea data-template>
+              ### 著作权许可协议
+              ![CC Logo](./media/cc.jpg) <!-- .element class="stretch" style="height: 150px; background-color: white;" -->
+
+              自由组合以下四种传播中的限制：
+              - ![cc-by](./media/cc-by.png)<!-- .element style="vertical-align:bottom; display: inline-block; margin: 0 auto" -->署名
+              - ![cc-nc](./media/cc-nc.png)<!-- .element style="vertical-align:bottom; display: inline-block; margin: 0 auto" -->非商业性使用
+              - ![cc-nd](./media/cc-nd.png)<!-- .element style="vertical-align:bottom; display: inline-block; margin: 0 auto" -->禁止演绎
+              - ![cc-sa](./media/cc-sa.png)<!-- .element style="vertical-align:bottom; display: inline-block; margin: 0 auto" -->相同方式共享
+            </textarea>
+          </section>
+
+          <section data-markdown>
+            <textarea data-template>
+              ### 许可证小调查
+              你会选择哪一种许可证？
+
+              ![survey_qrcode.jpe](./media/survey_qrcode.jpe) <!-- .element style="max-height: 350px" -->
+            </textarea>
+          </section>
+
+          <section data-markdown>
+            <textarea data-template>
+              ### F### Nvidia
+
+              ![fuck_nvidia](./media/fuck_nvidia.jpg) <!-- .element style="max-height: 350px" -->
+            </textarea>
+          </section>
+
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            # Q&A
+            更多开源/自由软件/Linux知识，敬请加入SJTUG
+            ![sjtug_qrcode](./media/sjtug_qrcode.jpg) <!-- .element style="max-height: 350px" -->
+          </textarea>
+        </section>
+
+
+
+
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        slideNumber: true,
+        history: true,
+        parallaxBackgroundImage: "./media/bg.png",
+        parallaxBackgroundSize: '2100px 1200px',
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+        },
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/math/math.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
