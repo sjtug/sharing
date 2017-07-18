@@ -1,0 +1,339 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Haskell School of Music</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+        <section>
+          <h1>Haskell School of Music</h1>
+          <p>
+            张宇宁 @ <a href="http://sjtug.org"><img src="./img/logo.png" width="50" class="plain"
+                  style="vertical-align:bottom; display: inline-block; margin: 0 auto" alt="SJTUG">SJTUG</a>
+          </p>
+        </section>
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+            ## 问题
+            - 程序如何描述音乐？
+            - 类型是什么？它为什么对程序语言而言是重要的？
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ## 两种层次
+              - signal-level
+              - note-level
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ## signal-level
+              <img src="./img/wave.png" width="400">
+
+              (Not today's topic)
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ## note-level
+              ![FromTheNewWorld](./img/fromTheNewWorld.png)
+
+              (Today's topic)
+            </textarea>
+          </section>
+        </section>
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              ## 从简单程序开始
+              ```haskell
+              (1 + 3) ** 2
+              ```
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ```haskell
+              (1 + 3) ** 2
+              ...
+              (1 + 3) ** 2
+              ...
+              (1 + 3) ** 2
+              ...
+              (1 + 3) ** 2
+              ...
+              (1 + 3) ** 2
+              ```
+            </textarea>
+          </section>
+          <section>
+            <h1>Don't repeat yourself!</h1>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ## 起名字
+              ```haskell
+              res = (1 + 3) ** 2
+              pi = 3.1415926
+              ```
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ## 同一个值可以有不同的名字
+              ```haskell
+              concertA = (A, 4) -- 440Hz
+              a440 = (A, 4)
+              ```
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ## 还有重复
+              ```haskell
+              pi * (1 ** 2)
+              pi * (2 ** 2)
+              pi * (3 ** 2)
+              pi * (4 ** 2)
+              pi * (5 ** 2)
+              ```
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ## 函数
+              ```haskell
+              area r = pi * (r ** 2) -- 定义
+              area 3 -- 应用 => pi * (3 ** 2)
+              ```
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+               ## Untyped lambda calculus
+               ![Untyped lambda calculus](./img/ULC.png)
+            </textarea>
+          </section>
+        </section>
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+            ## 程序中的值
+            - 1, 2, 3, 4, 5, 6, 7 ...
+            - 'a', 'b', 'c', 'd' ...
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ## 类型
+              ```haskell
+              1 :: Int
+              2 :: Int
+              'a' :: Char
+              'b' :: Char
+              ```
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ## 思考
+              ```haskell
+              1 + 1
+              1 + 'a' -- ???
+              ```
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ## 类型描述了值的性质
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ## 函数也是值，也有类型
+              ```haskell
+              area :: Double -> Double
+              area r = pi * (r ** 2)
+              ```
+            </textarea>
+          </section>
+        </section>
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+            ## 目的
+            > 用程序语言的方式对音乐进行抽象
+
+            => 定义 Music 类型
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ## 方式
+              - 自顶向下
+              - 自底向上 <--
+            </textarea>
+          </section>
+        </section>
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              ## 基本元素：音符
+              - 时值
+              - 音高
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ## 时值
+              ```haskell
+              type Dur = Rational
+              ```
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ## 休止符
+              ```
+              data Primitive = Rest Dur
+              ```
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ## 音高
+              ```haskell
+              type Pitch = (PitchClass, Octave)
+              type Octave = Int
+              data PitchClass = Cff | Cf | C | Dff
+              | Cs | Df | Css | D | Eff | Ds
+              | Ef | Fff | Dss | E | Ff | Es | F | Gff | Ess | Fs
+              | Gf | Fss | G | Aff | Gs | Af | Gss | A | Bff | As
+              | Bf | Ass | B | Bs | Bss
+              ```
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ## 补上音符定义
+              ```haskell
+              data Primitive = Note Dur Pitch
+                             | Rest Dur
+              ```
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ## 重新思考
+              - 没有音高：鼓，三角铁...
+              - 额外的信息：强弱(ppp, pp ... ff, fff)等
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ## 怎么办
+              为每种需求重新定义一个音符类型？
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ## 多态数据类型
+              ```haskell
+              data Primitive a = Note Dur a
+                               | Rest Dur
+              ```
+            </textarea>
+          </section>
+        </section>
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              ## The Music Type
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ![](./img/prim.png)
+              ```haskell
+              Prim (Primitive a)
+              ```
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ![](./img/seq.png)
+              ```haskell
+              Music a :+: Music a
+              ```
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ![](./img/chord.png)
+              ```haskell
+              Music a :=: Music a
+              ```
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ## 最终的结果
+              ```haskell
+              data Music a = Prim (Primitive a) -- primitive value
+                           | Music a :+: Music a -- sequential composition
+                           | Music a :=: Music a -- parallel composition
+              ```
+              （递归类型）
+            </textarea>
+          </section>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            ## Thanks, it's Q&A time!
+            更多程序语言知识，敬请加入SJTUG
+            <img src="./img/qr.jpg" width="400">
+          </textarea>
+        </section>
+      </div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+        slideNumber: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
