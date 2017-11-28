@@ -1,0 +1,396 @@
+<html>
+
+<head>
+	<meta charset="utf8"></meta>
+	<link rel="stylesheet" href="revealjs/css/reveal.css">
+	<link rel="stylesheet" href="revealjs/css/theme/black.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>科学上网茶话会</h1>
+				SJTUG
+			</section>
+
+			<section>
+				<section>
+					<h2>墙与翻墙</h2>
+					矛与盾都在不断进化
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### DNS污染
+						#### 方式
+						- 用户查询`google.com`的时候返回一个假IP地址
+							- 国内DNS服务器：递归向上查询，被污染
+							- 国外(`dig @8.8.4.4 google.com`)服务器：GFW假冒/丢弃返回的IP
+
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### DNS污染
+						#### 应对
+						- 手动编辑hosts，`google.com 172.217.11.174`
+						- 使用TCP/HTTP方式查询`dig +vc @8.8.4.4 google.com`
+							- 已失效：直接Block `8.8.4.4`所有流量
+						- 加密DNS流量
+							- DNSCrypt/通用代理软件
+
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### IP Filter
+						#### 方式
+						- 如果IP包的目的/源地址在某个名单内，就丢弃该包
+							- Google、Facebook、Twitter绝大多数服务器都已在该名单中
+
+						#### 应对
+						- 通用代理软件
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Deep packet inspection(DPI)
+						#### 方式
+						- 对数据包的内容、时序与源目的地进行深度分析，从而实行精细化的Block操作
+							- 丢弃该IP所有/某个端口/符合某种规则的数据
+							- 例如：PPTP/L2TP/IPSec VPN封锁、多人共用一个SS、Tor
+
+						#### 应对
+						- 使用带有混淆功能的代理软件
+					</textarea>
+				</section>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					## 错误的科学上网方式
+					- 使用来源不明的第三方软件（GreenVPN等VPN）
+					- 使用公用代理列表上的服务器
+					- 使用网页在线代理等服务
+					- 使用来源不明的服务器
+				</textarea>
+
+			</section>
+
+
+			<section>
+				<section data-markdown>
+					<textarea data-template>
+						## 目前常用的技术一览
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						### 史前时代
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+
+						#### HTTP(s) Proxy
+						- 延时高
+						- 极易识别
+						- 只能转发HTTP（TCP）请求
+
+						![http_proxy_1](assets/http_proxy_1.png)
+
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						- 可以通过`CONNECT`来转发TCP流量
+						![http_proxy_2](assets/http_proxy_1.png)
+
+
+						> Credits: 《HTTP权威指南》
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						#### Socks5 Proxy
+						- 可以转发UDP请求/充当反向代理
+						- 依旧极易被识别
+
+						默认都是明文，可以套上TLS加密。但客户端支持较差
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+							Two operations are defined: CONNECT and BIND.
+
+```
+				+----+----+----+----+----+----+----+----+----+----+....+----+
+				| VN | CD | DSTPORT |      DSTIP        | USERID       |NULL|
+				+----+----+----+----+----+----+----+----+----+----+....+----+
+ # of bytes:	   1    1      2              4           variable       1
+```
+
+						> SOCKS4a http://ftp.icm.edu.pl/packages/socks/socks4/SOCKS4.protocol
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						#### SSH tunnel
+						
+						$ 本地软件 \longrightarrow 本地\textrm{SOCKS}端口 \xrightarrow[ssh隧道]{} 国外服务器 $
+						
+						- 操作简单：
+						```
+						$ google-chrome --proxy-server=socks://127.0.0.1:1080
+						$ ssh -D 1080 my-server
+						```
+						- 有加密
+						- 依旧容易被识别
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						##### when SSH directly transports TTY keystrokes 
+						`packet length = SSH header + 1 byte char code + padding + HMAC`  This could be `36`,`40`,`48` bytes or so.
+
+						 ##### when SSH tunnels another SSH channel transporting TTY traffic
+						`packet length = SSH header + [previous SSH pkt] + HMAC` This could be `76`, `84`, `98` bytes and so on
+
+
+						> https://www.trisul.org/blog/reverse-ssh/post.html
+
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						#### VPN系列
+						PPTP, L2TP w/IPSec, OpenVPN
+
+						- 封装链路层的包
+						- 特征依旧明显
+						- 广泛用于跨国企业组网
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						#### Hosts文件
+						GFW只污染了`www.google.com` -> `a.b.c.d`的DNS返回结果，直接访问`a.b.c.d`还是可以的。
+
+						- 早已失效
+					</textarea>
+				</section>
+				
+				<section data-markdown>
+					<textarea data-template>
+						### 近代
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						#### SoftEther VPN (2014) [失效]
+						本质上是L2 VPN，但是用HTTPS协议创建连接，因此较难被探测
+
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						- 一般搭配VPNGate插件使用，可以将自己的电脑作为服务器
+						![softether](assets/softether.jpg)
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						#### GoAgent (2013) [失效]
+						- 利用Google App Engine作为服务端，当时Google的大量IP尚未被屏蔽
+						- 利用HTTP/HTTPs传输数据
+						- 支持混淆（！）
+					</textarea>
+				</section>
+				
+				<section data-markdown>
+					<textarea data-template>
+						![goagent](assets/goagent.png)
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						#### Shadowsocks (2013)
+						- 抛弃了over HTTP(s)的做法，直接在TCP上使用自有协议
+						- 特征较小（早期而言）
+						- 在手机、PC、路由器都有完整客户端
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						##### Why deprecated?
+						- 单端口
+						- 对抗DPI能力薄弱
+							- 不在于GFW不让通过什么，而在于让通过什么
+						- 连接 1:1
+						- 扩展性差
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						#### Lantern
+						- Lantern 1/2/3 是完全不同的软件！
+						- Lantern1: P2P，需要获得邮件邀请注册
+						- Lantern2+: 中心化的代理服务器
+						- 目前版本采取了自定义协议 over TCP的策略，并采用了混淆、N:1 mux的方式减小特征
+
+						> 不信任中心化的服务
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						#### Tor
+						- 很特殊，因为它的目标是“匿名”而不是科学上网
+						- P2P，经过3次中转到达出口，所以延时很大
+						- 传闻网络中存在大量国家设置的蜜罐节点
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						- 最早提供了插件级的“混淆”服务
+						- 最新版是[obfs4](https://github.com/Yawning/obfs4)
+							- 已经可以被侦测
+							> [Wang, L., Dyer, K. P., Akella, A., Ristenpart, T., & Shrimpton, T. (2015, October). Seeing through Network-Protocol Obfuscation. 
+							In Proceedings of the 22nd ACM SIGSAC Conference on Computer and Communications Security (pp. 57-69). ACM.](http://pages.cs.wisc.edu/~akella/papers/ccsfp653-wangA.pdf)
+					</textarea>
+				</section>
+
+			</section>
+			<section data-markdown>
+				<textarea data-template>
+					## 现在推荐的解决方案
+					- V2Ray (首选)
+					- Cisco Anyconnect (SSL VPN，被大量外企使用)
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					## 配置教程
+				</textarea>
+			</section>
+			
+			<section>
+				<section data-markdown>
+					<textarea data-template>
+						## 代理软件
+						![Proxy arch](./assets/proxy-arch.png)
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+					### 如何评价？
+					![triangle](./assets/triangle.png)
+					</textarea>
+				</section>
+			</section>
+
+			<section>
+				<section data-markdown>
+					<textarea data-template>
+						## 加速手段 
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						### BBR 
+						- 一种现代的针对高丢包情况下的TCP拥塞算法 
+						- 部署方便
+						- 推荐
+
+						![](assets/tcp_bbr.gif)
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						### KCPTun
+						- 在UDP协议上实现可靠传输的隧道
+						- 部分运营商封锁UDP流量
+						- 公平性问题
+						- 部署麻烦
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						### [TCP Fastopen](https://lwn.net/Articles/508865/)
+						![tcp_fastopen1](assets/tcp_fastopen_1.png)
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						![tcp_fastopen2](assets/tcp_fastopen_2.png)
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						![tcp_fastopen3](assets/tcp_fastopen_3.png)
+					</textarea>
+				</section>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					## Extra credits!
+					- 缅甸、马来西亚、澳大利亚国际手机卡
+					![](assets/intl-sim-card.png)
+				</textarea>
+			</section>
+		</div>
+	</div>
+	<script src="revealjs/lib/js/head.min.js"></script>
+	<script src="revealjs/js/reveal.js"></script>
+	<script>
+		Reveal.initialize({
+			slideNumber: true,
+			history: true,
+			dependencies: [{
+					src: 'revealjs/plugin/highlight/highlight.js',
+					async: true,
+					callback: function () {
+						hljs.initHighlightingOnLoad();
+					}
+				},
+				{
+					src: 'revealjs/plugin/math/math.js',
+					async: true
+				},
+				{
+					src: 'revealjs/plugin/markdown/marked.js',
+					condition: function () {
+						return !!document.querySelector('[data-markdown]');
+					}
+				},
+				{
+					src: 'revealjs/plugin/markdown/markdown.js',
+					condition: function () {
+						return !!document.querySelector('[data-markdown]');
+
+					}
+				}
+			]
+		});
+	</script>
+</body>
+
+</html>
