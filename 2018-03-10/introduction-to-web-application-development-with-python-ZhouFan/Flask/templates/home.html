@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block body %}
+	<ul>
+		{% for post in posts %}
+			<li> {{ post }} </li>
+		{% endfor %}
+	</ul>
+	<a href="{{ url_for('about') }}">About SJTUG</a>
+	<a href="{{ url_for('add_post') }}">Add a post</a>
+{% endblock %}
