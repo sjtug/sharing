@@ -1,0 +1,754 @@
+/* ikiwiki style sheet */
+
+/* Note that instead of modifying this style sheet, you can instead edit
+ * local.css and use it to override or change settings in this one.
+ */
+
+/* html5 compat */
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+	display: block;
+}
+
+div.header, header.header {
+	margin: 0;
+	font-size: 140%;
+	font-weight: bold;
+	line-height: 1em;
+	display: block;
+}
+
+.inlineheader .author {
+	margin: 0;
+	font-size: 112%;
+	font-weight: bold;
+	display: block;
+}
+
+.actions ul {
+	margin: 0;
+	padding: 6px .4em;
+	height: 1em;
+	list-style-type: none;
+}
+.actions li {
+	display: inline;
+	padding: .2em;
+}
+.pageheader .actions ul {
+	border-bottom: 1px solid #000;
+}
+
+.inlinepage .actions ul {
+	border-bottom: 0;
+}
+
+#otherlanguages ul {
+	margin: 0;
+	padding: 6px;
+	list-style-type: none;
+}
+#otherlanguages li {
+	display: inline;
+	padding: .2em .4em;
+}
+.pageheader #otherlanguages {
+	border-bottom: 1px solid #000;
+}
+
+.inlinecontent,
+.inlineenclosure {
+	margin-top: .4em;
+}
+
+.pagefooter,
+.inlinefooter,
+.comments {
+	clear: both;
+}
+
+#pageinfo {
+	margin: 1em 0;
+	border-top: 1px solid #000;
+}
+
+.tags {
+	margin-top: 1em;
+}
+
+.inlinepage .tags {
+        display: inline;
+}
+
+.mapparent {
+	text-decoration: none;
+}
+
+.img caption {
+	font-size: 80%;
+	caption-side: bottom;
+	text-align: center;
+}
+
+img.img {
+	margin: 0.5ex;
+}
+
+.align-left {
+	float:left;
+}
+
+.align-right {
+	float:right;
+}
+
+#backlinks {
+	margin-top: 1em;
+}
+
+#searchform {
+	display: inline;
+	float: right;
+}
+
+#editcontent {
+	width: 98%;
+}
+
+.editcontentdiv {
+	width: auto;
+	overflow: auto;
+}
+
+img {
+	border-style: none;
+}
+
+pre {
+	overflow: auto;
+}
+
+div.recentchanges {
+	border-style: solid;
+	border-width: 1px;
+	overflow: auto;
+	width: auto;
+	clear: none;
+	background: #eee;
+	color: black !important;
+}
+.recentchanges .metadata {
+	padding: 0px 0.5em;
+}
+.recentchanges .changelog {
+	font-style: italic;
+	clear: both;
+	display: block;
+	padding: 1px 2px;
+	background: white !important;
+	color: black !important;
+}
+.recentchanges .desc {
+	display: none;
+}
+.recentchanges .diff {
+	display: none;
+}
+.recentchanges .committer {
+	float: left;
+	margin: 0;
+	width: 40%;
+}
+.recentchanges .committype {
+	float: left;
+	margin: 0;
+	width: 5%;
+	font-size: small;
+}
+.recentchanges .changedate {
+	float: left;
+	margin: 0;
+	width: 35%;
+	font-size: small;
+}
+.recentchanges .pagelinks,
+.recentchanges .revert {
+	float: right;
+	margin: 0;
+	width: 60%;
+}
+
+.blogform, #blogform {
+	padding: 10px 10px;
+	border: 1px solid #aaa;
+	background: #eee;
+	color: black !important;
+	width: auto;
+	overflow: auto;
+}
+
+.inlinepage {
+	padding: 10px 10px;
+	border: 1px solid #aaa;
+	overflow: auto;
+}
+
+.pagedate,
+.pagelicense,
+.pagecopyright {
+	font-style: italic;
+	display: block;
+	margin-top: 1em;
+}
+
+.archivepagedate {
+	font-style: italic;
+}
+.archivepage {
+	margin-bottom: 1em;
+}
+
+.error {
+	color: #C00;
+}
+
+.sidebar {
+	width: 20ex;
+	float: right;
+	margin-left: 4px;
+	margin-bottom: 4px;
+	margin-top: -1px;
+	padding: 0ex 2ex;
+	background: white;
+	border: 1px solid black;
+	color: black !important;
+}
+
+hr.poll {
+	height: 10pt;
+	color: white !important;
+	background: #eee;
+	border: 2px solid black;
+}
+div.poll {
+	margin-top: 1ex;
+	margin-bottom: 1ex;
+	padding: 1ex 1ex;
+	border: 1px solid #aaa;
+}
+
+span.color {
+	padding: 2px;
+}
+
+.comment-header,
+.microblog-header {
+	font-style: italic;
+	margin-top: .3em;
+}
+.comment .author,
+.microblog .author {
+	font-weight: bold;
+}
+.comment-subject {
+	font-weight: bold;
+}
+.comment-avatar {
+	float: right;
+}
+.comment {
+	border: 1px solid #aaa;
+	padding: 3px;
+}
+
+div.progress {
+	margin-top: 1ex;
+	margin-bottom: 1ex;
+	border: 1px solid #888;
+	width: 400px;
+	background: #eee;
+	color: black !important;
+	padding: 1px;
+}
+div.progress-done {
+	background: #ea6 !important;
+	color: black !important;
+	text-align: center;
+	padding: 1px;
+}
+
+/* things to hide in printouts */
+@media print {
+	.actions { display: none; }
+	.tags { display: none; }
+	.trails { display: none; }
+	.feedbutton { display: none; }
+	#searchform { display: none; }
+	.blogform, #blogform { display: none; }
+	#backlinks { display: none; }
+}
+
+/* infobox template */
+.infobox {
+	float: right;
+	margin-left: 2ex;
+	margin-top: 1ex;
+	margin-bottom: 1ex;
+	padding: 1ex 1ex;
+	border: 1px solid #aaa;
+	background: white;
+	color: black !important;
+}
+
+/* notebox template */
+.notebox {
+	float: right;
+	margin-left: 2ex;
+	margin-top: 1ex;
+	margin-bottom: 1ex;
+	padding: 1ex 1ex;
+	border: 1px solid #aaa;
+	width: 25%;
+	background: white;
+	color: black !important;
+}
+
+/* popup template and backlinks hiding */
+.popup {
+	border-bottom: 1px dotted #366;
+	color: #366;
+}
+.popup .balloon,
+.popup .paren,
+.popup .expand {
+	display: none;
+	text-align: left;
+}
+.popup:hover .balloon,
+.popup:focus .balloon {
+	position: absolute;
+	display: inline;
+	margin: 1em 0 0 -2em;
+	padding: 0.625em;
+	border: 2px solid;
+	background-color: #dee;
+	color: black;
+}
+
+/* form styling */
+fieldset {
+	margin: 1ex 0;
+	border: 1px solid black;
+}
+legend {
+	padding: 0 1ex;
+}
+.fb_submit {
+	float: left;
+	margin: 2px 0;
+}
+label.block {    
+	display: block;   
+}
+label.inline {    
+	display: inline;
+}
+input#openid_identifier {
+	background: url(wikiicons/openidlogin-bg.gif) no-repeat;
+	background-color: #fff;
+	background-position: 0 50%;
+	color: #000;
+	padding-left: 18px;
+}
+input#searchbox {
+	background: url(wikiicons/search-bg.gif) no-repeat;
+	background-color: #fff;
+	background-position: 100% 50%;
+	color: #000;
+	padding-right: 16px;
+}
+/* invalid form fields */
+.fb_invalid {
+	color: red;
+	background: white !important;
+}
+/* required form fields */
+.fb_required {
+	font-weight: bold;
+}
+
+/* highlight plugin */
+pre.hl { color:#000000; background-color:#ffffff; }
+.hl.num { color:#2928ff; }
+.hl.esc { color:#ff00ff; }
+.hl.str { color:#ff0000; }
+.hl.dstr { color:#818100; }
+.hl.slc { color:#838183; font-style:italic; }
+.hl.com { color:#838183; font-style:italic; }
+.hl.dir { color:#008200; }
+.hl.sym { color:#000000; }
+.hl.line { color:#555555; }
+.hl.mark { background-color:#ffffbb; }
+.hl.kwa { color:#000000; font-weight:bold; }
+.hl.kwb { color:#830000; }
+.hl.kwc { color:#000000; font-weight:bold; }
+.hl.kwd { color:#010181; }
+
+/* calendar plugin */
+.month-calendar-day-this-day,
+.year-calendar-this-month {
+	background-color: #eee;
+}
+.month-calendar-day-head,
+.month-calendar-day-nolink,
+.month-calendar-day-link,
+.month-calendar-day-this-day,
+.month-calendar-day-future {
+	text-align: right;
+}
+.month-calendar-arrow A:link,
+.year-calendar-arrow A:link,
+.month-calendar-arrow A:visited,
+.year-calendar-arrow A:visited {
+	text-decoration: none;
+	font-weight: normal;
+	font-size: 150%;
+}
+
+/* outlines */
+li.L1 { list-style: upper-roman; }
+li.L2 { list-style: decimal; }
+li.L3 { list-style: lower-alpha; }
+li.L4 { list-style: disc; }
+li.L5 { list-style: square; }
+li.L6 { list-style: circle; }
+li.L7 { list-style: lower-roman; }
+li.L8 { list-style: upper-alpha; }
+
+/* tag cloud */
+.pagecloud {
+	float: right;
+	width: 30%;
+	text-align: center;
+	padding: 10px 10px;
+	border: 1px solid #aaa;
+	background: #eee;
+	color: black !important;
+}
+.smallestPC { font-size: 70%; }
+.smallPC { font-size: 85%; }
+.normalPC { font-size: 100%; }
+.bigPC { font-size: 115%; }
+.biggestPC { font-size: 130%; }
+
+/* orange feed button */
+.feedbutton {
+	background: #ff6600;
+	color: white !important;
+	border-left: 1px solid #cc9966;
+	border-top: 1px solid #ccaa99;
+	border-right: 1px solid #993300;
+	border-bottom: 1px solid #331100;
+	padding: 0px 0.5em 0px 0.5em;
+	font-family: sans-serif;
+	font-weight: bold;
+	font-size: small;
+	text-decoration: none;
+	margin-top: 1em;
+}
+.feedbutton:hover {
+	color: white !important;
+	background: #ff9900;
+}
+
+.FlattrButton {
+	display: none;
+}
+
+/* login selector */
+#login_choice {
+	display: none;
+}
+#login_input_area {
+	clear: both;
+	padding: 10px;
+}
+#login_btns, #login_btns br {
+	clear: both;
+}
+#login_highlight {
+	background-color: black;
+	float: left;
+}
+.login_large_btn {
+	padding: 1em 1.5em;
+	border: 1px solid #DDD;
+	margin: 3px;
+	float: left;
+}
+.login_small_btn {
+	padding: 4px 4px;
+	border: 1px solid #DDD;
+	margin: 3px;
+	float: left;
+}
+a.login_large_btn:focus {
+	outline: none;
+}
+a.login_large_btn:focus {
+	outline-style: none;
+}
+.login_selected {
+	border: 4px solid #DDD;
+}
+
+.fileupload-content .ui-progressbar {
+	width: 200px;
+	height: 20px;
+}
+.fileupload-content .ui-progressbar-value {
+	background: url(ikiwiki/images/pbar-ani.gif);
+}
+
+.trails {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+.trail {
+	display: block;
+	clear: both;
+	position: relative;
+}
+
+.trailprev {
+	display: block;
+	text-align: left;
+	position: absolute;
+	top: 0%;
+	left: 3%;
+	width: 30%;
+}
+
+.trailup {
+	display: block;
+	text-align: center;
+	margin-left: 35%;
+	margin-right: 35%;
+}
+
+.trailnext {
+	display: block;
+	text-align: right;
+	position: absolute;
+	top: 0%;
+	width: 30%;
+	right: 3%;
+}
+
+.trailsep {
+	display: none;
+}
+
+/* mobile/small-screen-friendly layout */
+@media (max-width: 600px) {
+	.sidebar {
+		width: auto;
+		float: none;
+		margin-top: 0;
+		border: none;
+	}
+
+	/* if the mobile browser is new enough, use flex layout to shuffle
+	 * the sidebar to the end */
+	.page {
+		display: -webkit-box;
+		display: -webkit-flexbox;
+		display: -webkit-flex;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-flex-direction: tb;
+		-webkit-flex-direction: column;
+		-webkit-flex-flow: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+	}
+	#pageheader {
+		-webkit-box-ordinal-group: -1;
+		-webkit-order: -1;
+		-ms-box-ordinal-group: -1;
+		-ms-flex-order: -1;
+		order: -1;
+	}
+	.sidebar, #footer {
+		-webkit-box-ordinal-group: 1;
+		-webkit-order: 1;
+		-ms-box-ordinal-group: 1;
+		-ms-flex-order: 1;
+		order: 1;
+	}
+
+	.blogform, #blogform {
+		padding: 4px 4px;
+	}
+}
+/* actiontabs theme for ikiwiki
+ *
+ * by svend
+ */
+
+a {
+	text-decoration: none;
+	color: #005a9c;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+
+hr {
+	border-style: none;
+	background-color: #999;
+	height: 1px;
+}
+
+code, pre {
+	background: #eee;
+}
+
+pre {
+	padding: .5em;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	color: black;
+	background: white;
+}
+
+.pageheader {
+	margin: 0;
+	padding: 1em 2em;
+	position: relative;
+	overflow: hidden;
+	background: #eee;
+	border-color: #999;
+	border-style: none none solid none;
+	border-width: 1px;
+}
+
+.pageheader .header {
+	float: left;
+	font-size: 120%;
+}
+
+div.header, header.header {
+	font-weight: normal;
+}
+
+.title {
+	display: block;
+	margin-top: .2em;
+	font: 140% sans-serif;
+}
+
+#searchform {
+	position: absolute;
+	top: 0.5em;
+	right: 2em;
+}
+
+.pageheader .actions {
+	position: absolute;
+	bottom: 0;
+	right: 2em;
+	width: 100%;
+	text-align: right;
+	padding: 2px;
+}
+
+#content, #enclosure, #comments, #footer {
+	margin: 1em 2em;
+}
+
+#pageinfo {
+	border-color: #999;
+}
+
+.inlinepage {
+	margin: .4em 0;
+	padding: .4em 0;
+	border-style: none;
+	border-top: 1px solid #aaa;
+}
+
+.inlineheader {
+	font-size: 120%;
+}
+
+h1 { font: 120% sans-serif }
+h2 { font: bold 100% sans-serif }
+h3, h4, h5, h6 { font: bold 80% sans-serif }
+
+/* Smaller headings for inline pages */
+.inlinepage h1 { font-size: 110% }
+.inlinepage h2 { font-size: 100% }
+.inlinepage h3 { font-size: 100% }
+
+.pageheader .actions ul {
+	border-style: none
+}
+
+.actions ul {
+	padding: 0;
+	border-style: none;
+}
+
+.actions ul li a {
+	text-decoration: none;
+}
+
+.pageheader .actions ul li {
+	margin: 0;
+	padding: .1em .5em 0 .5em;
+	background: white;
+	border-color: #999;
+	border-style: solid solid none solid;
+	border-width: 1px;
+}
+
+div.recentchanges {
+	border-style: none;
+}
+
+.pagecloud {
+	width: auto;
+}
+
+.sidebar {
+        border-bottom: 0;
+	border-right: 0;
+	border-top: 0;
+	margin-top: 0.5em;
+	padding: 0 0 0 2ex;
+	border-color: #999;
+}
+
+.pageheader .trails {
+	/* allow space for the action tabs */
+	margin-bottom: 2em;
+}
+
+@media (max-width: 600px) {
+	#content, #enclosure, #comments, #footer {
+		margin: 0.5em;
+	}
+	.pageheader .actions ul li {
+		padding: .1em .2em 0 .2em;
+		font-size: 0.8em;
+	}
+}

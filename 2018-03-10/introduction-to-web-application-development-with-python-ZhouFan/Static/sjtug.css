@@ -1,0 +1,26 @@
+.container {
+    width: 240px;
+    margin: 0 auto;
+}
+
+#title {
+    text-align: center;
+}
+
+#title h1 {
+    font-family: 'Ceviche One', cursive;
+    font-size: 80px;
+    margin: 0;
+}
+
+#title small {
+    font-size: 22px;
+    color: #666;
+}
+
+@font-face {
+	font-family: 'Ceviche One';
+ 	font-style: normal;
+ 	font-weight: 400;
+ 	src: url(CevicheOne-Regular.ttf) format('truetype');
+}

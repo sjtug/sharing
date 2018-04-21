@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SJTUG | Welcome</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='sjtug.css') }}">
+	</head>
+	<body>
+		<div class="container">
+			<img id="logo" src="{{ url_for('static', filename='logo.png') }}" width="240">
+			<div id="title">
+				<h1>{{ heading1 }}</h1>
+				<small>{{ heading2 }}</small>
+			</div>
+			<br/>
+			{% block body %}{% endblock %}
+		</div>
+	</body>
+</html>

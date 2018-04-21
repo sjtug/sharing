@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block body %}
+	<form action="{{ url_for('add_post') }}" method="post">
+	    <legend>Input the post title</legend>
+	    <p><input name="posttitle" placeholder="Title of new post"></p>
+	    <p><button type="submit">Add</button></p>
+  	</form>
+	<a href="{{ url_for('home') }}">Return Home</a>
+{% endblock %}

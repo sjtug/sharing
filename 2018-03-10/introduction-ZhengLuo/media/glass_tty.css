@@ -1,0 +1,10 @@
+@font-face {
+  font-family: GlassTTYVT220;
+  src: url('Glass_TTY_VT220.ttf');
+}
+
+.tty-font {
+    font-family: GlassTTYVT220 !important;
+    color: #18d818 !important;
+    font-weight: 700 !important;
+}
