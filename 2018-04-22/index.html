@@ -1,0 +1,345 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Rust and Memory Safety</title>
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/black.css">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <section>
+          <h1>Rust and Memory Safety</h1>
+          <p>
+            张宇宁 @
+            <a href="http://sjtug.org">
+              <img src="./img/logo.png" width="50" class="plain" style="vertical-align:bottom; display: inline-block; margin: 0 auto"
+                alt="SJTUG">SJTUG</a>
+          </p>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+              ## Disclaimer: not a Rust tutorial!
+          </textarea>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <textarea data-template>
+            ## 背景
+          </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+              ## Rust
+              Rust is a systems programming language that runs blazingly fast,
+              prevents segfaults, and guarantees thread safety.
+          </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+              ## Memory Space
+              <img src="./img/mem.png">
+          </textarea>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <textarea data-template>
+              ## Example
+              ```c++
+              int* example() {
+                int x = 5;
+                return &x;
+              }
+              ```
+          </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+              ## Dangling pointers
+          </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+              ## GC
+              ```go
+              func example() *Foo {
+                foo := Foo{}
+                return &foo
+              }
+              ```
+          </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+              ## Rust
+              ```rust
+              fn example<'a>() -> &'a i32 {
+                  let x = 0;
+                  &x
+              }
+              ```
+          </textarea>
+        </section>
+        <section>
+          <pre>
+              error[E0597]: `x` does not live long enough
+               --> src/main.rs:3:6
+                |
+              3 |     &x
+                |      ^ borrowed value does not live long enough
+              4 | }
+                | - borrowed value only lives until here
+                |
+              note: borrowed value must be valid for the lifetime 'a as defined...
+          </pre>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <textarea data-template>
+            ## Example
+            ```c++
+            struct Foo {};
+            struct Bar {
+              Foo *inner;
+            };
+
+            void example() {
+                Foo * foo = new Foo;
+                Bar * bar = new Bar;
+                bar.inner = foo;
+                /* some complex code */
+                delete foo;
+                /* some complex code */
+                do_something(bar.inner);
+            }
+            ```
+          </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+              ```Rust
+              struct Foo;
+              struct Bar<'a> {
+                  inner: &'a Foo,
+              }
+
+              fn example() {
+                  let foo = Foo;
+                  let bar = Bar {
+                      inner: &foo,
+                  };
+                  drop(foo)
+              }
+              ```
+          </textarea>
+        </section>
+        <section>
+          <pre>
+          error[E0505]: cannot move out of `foo` because it is borrowed
+          --> src/main.rs:11:24
+           |
+        9  |                       inner: &foo,
+           |                               --- borrow of `foo` occurs here
+        10 |                   };
+        11 |                   drop(foo)
+           |                        ^^^ move out of `foo` occurs here
+          </pre>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <textarea data-template>
+            ## Quiz
+            ```c++
+            void example() {
+                vector<int> v = {0, 1, 2, 3, 4};
+                auto iter = v.begin();
+                v.push_back(5);
+                cout << *iter;
+            }
+            ```
+          </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+              ```Rust
+              fn main() {
+                  let mut v = vec![0, 1, 2, 3, 4];
+                  let iter = v.iter();
+                  v.push(5);
+              }
+              ```
+          </textarea>
+        </section>
+        <section>
+          <pre>
+            error[E0502]: cannot borrow `v` as mutable because it is also borrowed as immutable
+          --> src/main.rs:4:19
+           |
+         3 |                   let iter = v.iter();
+           |                              - immutable borrow occurs here
+         4 |                   v.push(5);
+           |                   ^ mutable borrow occurs here
+         5 |               }
+           |               - immutable borrow ends here
+          </pre>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+              ## Borrowing Rules
+              - You can't keep borrowing something after it stops existing.
+              - One object may have many immutable references to it (&T).
+              - OR exactly one mutable reference (&mut T) (not both).
+          </textarea>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <textarea data-template>
+            ## escape hatches
+          </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+              ## Interior mutability
+              - RefCell
+              - https://doc.rust-lang.org/stable/std/cell/struct.RefCell.html
+              - `borrow()`/`borrow_mut()`
+              - A mutable memory location with dynamically checked borrow rules
+          </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+              ## Unsafe
+              > Should you wish a long and happy career of writing Rust programs,
+              > you should turn back now and forget you ever saw this book.
+              > It is not necessary. However if you intend to write unsafe code... 
+              > -- The Rustonomicon:
+              > The Dark Arts of Advanced and Unsafe Rust Programming              
+          </textarea>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <textarea data-template>
+              ## Memory Leak
+              ```c++
+              void example() {
+                  Foo * foo = new Foo;
+                  /* some complex code */
+              }
+              ```
+          </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+              ## It's safe to leak memory
+              https://github.com/rust-lang/rust/issues/24456
+              ```rust
+              fn forget<T>(val: T) { 
+                  let x = Rc::new((val, RefCell::new(None))); 
+                  *x.1.borrow_mut() = x.clone();
+              }
+              ```
+          </textarea>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <textarea data-template>
+              ## None Lexical Lifetimes
+          </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+              ```rust
+              fn main() {
+                  let mut x = 22;
+              
+                  let p = &mut x; // mutable borrow
+              
+                  println!("{}", x); // later used
+              }
+              ```
+          </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+              ```rust
+              fn main() {
+                  let mut x = 22;
+                  
+                  {
+                      let p = &mut x; // mutable borrow
+                  }
+              
+                  println!("{}", x); // later used
+              }
+              ```
+          </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+              ```rust
+              #![feature(nll)]
+
+              fn main() {
+                  let mut x = 22;
+
+                  let p = &mut x;
+
+                  println!("{}", x);
+              }
+              ```
+          </textarea>
+        </section>
+      </section>
+      <section data-markdown>
+        <textarea data-template>
+            ## Thanks, it's Q&A time!
+        </textarea>
+      </section>
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+
+  <script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+      slideNumber: true,
+      dependencies: [
+        { src: 'plugin/markdown/marked.js' },
+        { src: 'plugin/markdown/markdown.js' },
+        { src: 'plugin/notes/notes.js', async: true },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+      ]
+    });
+  </script>
+</body>
+</html>
